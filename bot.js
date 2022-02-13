@@ -8,6 +8,7 @@ const token = process.env['token']
 client.on('ready', () => {
   console.log(`successfully logged in`);
 });
+//returns a date prefix
 function getDatePrefix(date){
   if(date % 10 === 1){
     return "st ";
@@ -21,14 +22,13 @@ function getDatePrefix(date){
     return "th ";
   }
 }
+//array of months for date commands
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+//get date
 const date = new Date()
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
-
-  if (interaction.commandName === 'ping') {
-    await interaction.reply('Pong!');
-  }
+  
   if (interaction.commandName === 'date'){
     await interaction.reply("Today's date: " + months[date.getMonth()] + ' ' + 
     date.getDate() + getDatePrefix(date.getDate()) + date.getFullYear() + '.');
@@ -39,10 +39,12 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('messageCreate', (message) => {
+  //returns the date
   if(message.content === "!date"){
     message.channel.send("Today's date: " + months[date.getMonth()] + ' ' + 
     date.getDate() + getDatePrefix(date.getDate()) + date.getFullYear() + '.');
   }
+  //returns bot version
   else if(message.content === "!version"){
     message.channel.send('current version: 1.0.0 BETA');
   }
