@@ -1,0 +1,2 @@
+entrypoint = "bot.js"
+run = "npm start"
