@@ -24,6 +24,9 @@ client.on('messageCreate', (message) => {
   if(message.content === "!date"){
     message.channel.send('test complete');
   }
+  else if(message.content === "!version"){
+    message.channel.send('current version: 1.0.0 BETA');
+  }
 });
 
 client.login(token);
