@@ -11,6 +11,10 @@ const commands = [{
   name: 'date',
   description: 'Replies with date'
 },
+{
+  name: 'version',
+  description: 'current bot version'
+},
 ]; 
 
 const rest = new REST({ version: '9' }).setToken(token);
